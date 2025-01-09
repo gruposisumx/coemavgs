@@ -1,0 +1,13 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[context.production]
+  environment = { VISUAL_EDITOR_ENABLED = "true" }
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'self' https://app.netlify.com"
+    X-Frame-Options = "ALLOW-FROM https://app.netlify.com"
+    Access-Control-Allow-Origin = "*"
